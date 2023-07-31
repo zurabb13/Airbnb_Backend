@@ -3,6 +3,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { join } from 'path';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -11,6 +15,12 @@ import { MongooseModule } from '@nestjs/mongoose';
       isGlobal: true,
     }),
     MongooseModule.forRoot(process.env.MONGO),
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      driver: ApolloDriver,
+      playground: true,
+      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+    }),
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
