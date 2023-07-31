@@ -21,7 +21,7 @@ export class UserResolver {
 
   @Mutation(() => User)
   async createUser(@Args('createUser') user: CreateUser): Promise<User> {
-    return await this.service.create(user);
+    return this.service.create(user);
   }
   @Mutation(() => User)
   async update(

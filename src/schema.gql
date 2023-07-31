@@ -3,7 +3,6 @@
 # ------------------------------------------------------
 
 type User {
-  id: Float!
   name: String!
   lastname: String!
   email: String!
@@ -23,14 +22,12 @@ type Mutation {
 }
 
 input CreateUser {
-  id: Float!
   name: String!
   lastname: String!
   email: String!
 }
 
 input UpdateUser {
-  id: Float!
   name: String!
   lastname: String!
   email: String!
