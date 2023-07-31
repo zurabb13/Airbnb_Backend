@@ -1,9 +1,10 @@
 import { Field, InputType } from '@nestjs/graphql';
 import { Prop } from '@nestjs/mongoose';
+import mongoose from 'mongoose';
 
 @InputType()
 export class CreateUser {
-  // @Prop()
+  // @Prop({ type: mongoose.Schema.ObjectId })
   // @Field()
   // id: string;
 
