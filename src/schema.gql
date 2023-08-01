@@ -11,15 +11,29 @@ type User {
   updatedAt: String!
 }
 
+type Search {
+  country: String!
+  checkIn: Float!
+  checkOut: Float!
+  adults: Float!
+  children: Float!
+  infants: Float!
+}
+
 type Query {
   user: [User!]!
   userById(id: String!): User!
+  getAllSearch: [Search!]!
+  searchById(id: String!): Search!
 }
 
 type Mutation {
   createUser(createUser: CreateUser!): User!
   update(id: String!, UpdateUser: UpdateUser!): User!
   delete(id: String!): User!
+  createSearch(search: SearchEntity!): Search!
+  updateSearch(id: String!, search: SearchEntity!): Search!
+  deleteSearch(id: String!): Search!
 }
 
 input CreateUser {
@@ -32,4 +46,13 @@ input UpdateUser {
   name: String!
   lastname: String!
   email: String!
+}
+
+input SearchEntity {
+  country: String!
+  checkIn: Float!
+  checkOut: Float!
+  adults: Float!
+  children: Float!
+  infants: Float!
 }

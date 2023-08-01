@@ -2,8 +2,8 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import { User, UserDocument } from '../schema/user.schema';
 import { InjectModel } from '@nestjs/mongoose';
 import mongoose, { Model } from 'mongoose';
-import { UpdateUser } from 'src/entity/update.user.entity';
-import { CreateUser } from 'src/entity/create.user.entity';
+import { UpdateUser } from 'src/core/entity/update.user.entity';
+import { CreateUser } from 'src/core/entity/create.user.entity';
 
 @Injectable()
 export class UserService {
